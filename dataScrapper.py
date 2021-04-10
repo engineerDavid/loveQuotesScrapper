@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 import json
 my_dict = {}
 quotesCounts =0 
-for r in range(100):
+for PageNum in range(100):
     
-    URL = 'https://www.goodreads.com/quotes/tag/love?page={}'.format(r+1)
+    URL = 'https://www.goodreads.com/quotes/tag/love?page={}'.format(PageNum+1)
     print(URL)
     page = requests.get(URL)
 
@@ -73,7 +73,7 @@ for r in range(100):
   
     dataExtraction(CleanQ, quotesCounts)
     #there are 30 quotes per page and need update the count
-    quotesCounts = quotesCounts + 30
+    quotesCounts += 30
 
 #only uncoment when you are ready to save the data to a json file
 # with open('Sample.json', 'w') as fp:
